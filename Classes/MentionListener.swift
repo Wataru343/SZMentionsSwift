@@ -342,7 +342,7 @@ extension MentionListener: UITextViewDelegate {
 
         var shouldChangeText = true
 
-        if text == "\n", mentionEnabled, didHandleMentionOnReturn() {
+        if (text == "\n" || text == " "), mentionEnabled, didHandleMentionOnReturn() {
             // If mentions were handled on return then `addMention` should've been called.
             // Nothing to do here.
             shouldChangeText = false

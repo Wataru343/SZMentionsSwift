@@ -12,16 +12,20 @@ internal extension String {
     func range(of strings: [String], options: NSString.CompareOptions, range: NSRange? = nil) -> (range: NSRange, foundString: String) {
         let nsself = (self as NSString)
         var foundRange = NSRange(location: NSNotFound, length: 0)
-
-        let string = strings.first {
+        var string = ""
+        
+        strings.forEach {
+            var tempRange = NSRange(location: NSNotFound, length: 0)
             if let range = range {
-                foundRange = nsself.range(of: $0, options: options, range: range)
+                tempRange = nsself.range(of: $0, options: options, range: range)
             } else {
-                foundRange = nsself.range(of: $0, options: options)
+                tempRange = nsself.range(of: $0, options: options)
             }
-
-            return foundRange.location != NSNotFound
-        } ?? ""
+            if foundRange.location + foundRange.length < tempRange.location + tempRange.length {
+                foundRange = tempRange
+                string = $0
+            }
+        }
 
         return (foundRange, string)
     }

@@ -73,7 +73,7 @@ To integrate SZMentionsSwift into your Xcode project using CocoaPods, specify it
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod 'SZMentionsSwift'
+pod 'SZMentionsSwift', :git => 'https://github.com/mobile-davinder/SZMentionsSwift.git'
 ```
 
 Then, run the following command:

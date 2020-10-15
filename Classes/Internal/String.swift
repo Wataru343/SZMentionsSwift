@@ -21,7 +21,10 @@ internal extension String {
             } else {
                 tempRange = nsself.range(of: $0, options: options)
             }
-            if foundRange.location + foundRange.length < tempRange.location + tempRange.length {
+            
+            guard tempRange.location != NSNotFound else { return }
+            
+            if foundRange.location == NSNotFound || foundRange.location + foundRange.length < tempRange.location + tempRange.length {
                 foundRange = tempRange
                 string = $0
             }

@@ -289,7 +289,7 @@ extension MentionListener /* Private */ {
                     stringCurrentlyBeingFiltered = filterString
                     showMentionsListWithString(filterString, trigger)
                 }
-                activateCooldownTimer()
+//                activateCooldownTimer()
                 return
             }
         }

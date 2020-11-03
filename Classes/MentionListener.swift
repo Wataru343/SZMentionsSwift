@@ -283,7 +283,7 @@ extension MentionListener /* Private */ {
                     options: .backwards,
                     range: NSRange(location: 0, length: NSMaxRange(textView.selectedRange))
                 )
-                filterString = mentionString.filter { ![trigger, "\n"].contains(String($0)) }
+                filterString = mentionString.filter { trigger != String($0) }
 
                 if !(cooldownTimer?.isValid ?? false) {
                     stringCurrentlyBeingFiltered = filterString

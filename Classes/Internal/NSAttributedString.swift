@@ -68,8 +68,9 @@ internal func replace(charactersIn range: NSRange,
                       with text: String) -> (NSAttributedString) -> (NSAttributedString, NSRange) {
     return { string in
         let attributedText = string.mutableAttributedText
-        attributedText.mutableString.replaceCharacters(in: range, with: text)
-        let selectedRange = NSRange(location: range.location + text.utf16.count, length: 0)
+        let newRange = NSRange(location: range.location, length: min(attributedText.length - range.location, range.length))
+        attributedText.mutableString.replaceCharacters(in: newRange, with: text)
+        let selectedRange = NSRange(location: newRange.location + text.utf16.count, length: 0)
 
         return (attributedText, selectedRange)
     }

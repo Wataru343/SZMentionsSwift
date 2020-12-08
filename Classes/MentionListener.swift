@@ -372,7 +372,7 @@ extension MentionListener: UITextViewDelegate {
 
         if !shouldChangeText {
             notifyOfTextViewChange(on: textView)
-            if let range = textView.selectedTextRange {
+            if range.length == 0, let range = textView.selectedTextRange {
                 textView.typingAttributes = defaultTextAttributes.dictionary
                 textView.replace(range, withText: text == "\n" ? "\n" : " ")
             }

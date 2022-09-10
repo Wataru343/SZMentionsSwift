@@ -44,12 +44,12 @@ public class MentionListener: NSObject {
     /**
      @brief Text attributes to be applied to all text excluding mentions.
      */
-    private let defaultTextAttributes: [AttributeContainer]
+    private let defaultTextAttributes: [AttributeContainer_]
 
     /**
      @brief Block used to determine attributes for a given mention
      */
-    private let mentionTextAttributes: (CreateMention?) -> [AttributeContainer]
+    private let mentionTextAttributes: (CreateMention?) -> [AttributeContainer_]
 
     /**
      @brief The UITextView being handled by the MentionListener
@@ -126,8 +126,8 @@ public class MentionListener: NSObject {
     public init(
         mentionsTextView: UITextView,
         delegate: UITextViewDelegate? = nil,
-        mentionTextAttributes: ((CreateMention?) -> [AttributeContainer])? = nil,
-        defaultTextAttributes: [AttributeContainer]? = nil,
+        mentionTextAttributes: ((CreateMention?) -> [AttributeContainer_])? = nil,
+        defaultTextAttributes: [AttributeContainer_]? = nil,
         spaceAfterMention: Bool = false,
         triggers: [String] = ["@"],
         cooldownInterval: TimeInterval = 0.5,

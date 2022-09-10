@@ -10,14 +10,14 @@ import SZMentionsSwift
 import UIKit
 
 class ExampleAccessoryView: UIView {
-    struct Attribute: AttributeContainer {
+    struct Attribute: AttributeContainer_ {
         var name: NSAttributedString.Key
         var value: Any
     }
 
     private let textView = UITextView()
     private let mentionsTableView = UITableView()
-    private let mentionAttributes: [AttributeContainer] = [
+    private let mentionAttributes: [AttributeContainer_] = [
         Attribute(
             name: .foregroundColor,
             value: UIColor.black
@@ -31,7 +31,7 @@ class ExampleAccessoryView: UIView {
             value: UIColor.lightGray
         ),
     ]
-    private let defaultAttributes: [AttributeContainer] = [
+    private let defaultAttributes: [AttributeContainer_] = [
         Attribute(
             name: .foregroundColor,
             value: UIColor.gray

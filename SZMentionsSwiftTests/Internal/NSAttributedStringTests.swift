@@ -18,7 +18,7 @@ private extension NSAttributedString {
 private final class NSAttributedStringTests: XCTestCase {
     var mentionAttributes: [Attribute]!
     var defaultAttributes: [Attribute]!
-    var mentionAttributesClosure: ((CreateMention?) -> [AttributeContainer])!
+    var mentionAttributesClosure: ((CreateMention?) -> [AttributeContainer_])!
 
     override func setUp() {
         super.setUp()
@@ -82,7 +82,7 @@ private final class NSAttributedStringTests: XCTestCase {
         XCTAssertEqual(textView.typingAttributes[.backgroundColor] as? UIColor, .red)
         XCTAssertEqual(textView.typingAttributes[.foregroundColor] as? UIColor, .blue)
 
-        textView.typingAttributes = (defaultAttributes as [AttributeContainer]).dictionary
+        textView.typingAttributes = (defaultAttributes as [AttributeContainer_]).dictionary
 
         XCTAssertNil(textView.typingAttributes[.backgroundColor] as? UIColor)
         XCTAssertEqual(textView.typingAttributes[.foregroundColor] as? UIColor, .black)

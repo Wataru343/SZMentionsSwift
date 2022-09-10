@@ -9,8 +9,8 @@
 internal class Verifier {
     static let attributeConsistencyError = "Default and mention attributes must contain the same attribute names: If default attributes specify NSForegroundColorAttributeName mention attributes must specify that same name as well. (Values do not need to match)"
 
-    static func verifySetup(withDefaultTextAttributes defaultTextAttributes: [AttributeContainer],
-                            mentionTextAttributes: [AttributeContainer]) {
+    static func verifySetup(withDefaultTextAttributes defaultTextAttributes: [AttributeContainer_],
+                            mentionTextAttributes: [AttributeContainer_]) {
         let sortedMentionAttributes = mentionTextAttributes.sorted(by: { $0.name.rawValue > $1.name.rawValue })
         let sortedAttributes = defaultTextAttributes.sorted(by: { $0.name.rawValue > $1.name.rawValue })
         let attributesMatch = sortedMentionAttributes.elementsEqual(sortedAttributes) {

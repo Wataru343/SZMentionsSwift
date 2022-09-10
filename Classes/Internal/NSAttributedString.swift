@@ -21,7 +21,7 @@ internal extension NSAttributedString {
 
  @return (NSAttributedString, NSRange): The updated string and the new selected range
  */
-internal func apply(_ attributes: [AttributeContainer],
+internal func apply(_ attributes: [AttributeContainer_],
                     range: NSRange) -> (NSAttributedString)
     -> (NSAttributedString, NSRange) {
     return { string in
@@ -43,7 +43,7 @@ internal func apply(_ attributes: [AttributeContainer],
 
  @return (NSAttributedString, NSRange): The updated string and the new selected range
  */
-internal func apply(attributes: @escaping (CreateMention?) -> [AttributeContainer],
+internal func apply(attributes: @escaping (CreateMention?) -> [AttributeContainer_],
                     to mentions: [(CreateMention, NSRange)])
     -> (NSAttributedString) -> (NSAttributedString, NSRange) {
     return { string in
@@ -88,7 +88,7 @@ internal func replace(charactersIn range: NSRange,
 internal func add(_ mention: CreateMention,
                   spaceAfterMention: Bool,
                   at range: NSRange,
-                  with attributes: @escaping (CreateMention?) -> [AttributeContainer])
+                  with attributes: @escaping (CreateMention?) -> [AttributeContainer_])
     -> (NSAttributedString) -> (NSAttributedString, NSRange) {
     return { string in
         var attributedText = string
